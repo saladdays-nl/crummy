@@ -123,6 +123,7 @@ module Crummy
       can_link = url && links && (!is_last || last_crumb_linked)
       link_html_options = options[:link_html_options] || {}
       link_html_options[:class] = html_classes
+      with_microdata = false if is_first
       if with_microdata
         item_title = content_tag(:span, (truncate.present? ? name.truncate(truncate) : name), :itemprop => "title")
         html_options = {:itemscope => true, :itemtype => data_definition_url("Breadcrumb")}
